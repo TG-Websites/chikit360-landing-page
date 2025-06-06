@@ -1,251 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chikit360 - Your Digital Pharmacy Solution</title>
-    <link rel="stylesheet" href="style.css">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <div class="logo">
-          <span>Chikit360</span>
-        </div>
-        <ul class="nav-links">
-          <li><a href="#features">Features</a></li>
-          <li><a href="#how-it-works">How It Works</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="auth-buttons">
-          <button class="btn btn-secondary">Sign In</button>
-          <button class="reg">Register</button>
-        </div>
-        <div class="hamburger" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </nav>
-      <div class="mobile-menu" id="mobileMenu">
-        <ul class="mobile-nav-links">
-          <li><a href="#features" onclick="closeMenu()">Features</a></li>
-          <li><a href="#how-it-works" onclick="closeMenu()">How It Works</a></li>
-          <li><a href="#testimonials" onclick="closeMenu()">Testimonials</a></li>
-          <li><a href="#pricing" onclick="closeMenu()">Pricing</a></li>
-          <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-        </ul>
-        <div class="mobile-auth-buttons">
-          <button class="btn btn-secondary">Sign In</button>
-          <button class="reg">Register</button>
-        </div>
-      </div>
-    </header>
 
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Revolutionizing Medicine Shopping</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chikit360 - Your Digital Pharmacy Solution</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <i class="fas fa-clinic-medical"></i>
+        <span>Chikit<span class="highlight">360</span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#features" class="nav-link"> Features</a></li>
+        <li><a href="#how-it-works" class="nav-link"> How It Works</a></li>
+        <li><a href="#testimonials" class="nav-link"> Testimonials</a></li>
+        <li><a href="#pricing" class="nav-link"> Pricing</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="auth-buttons">
+        <button class="btn btn-outline">
+          <i class="fas fa-sign-in-alt"></i> Sign In
+        </button>
+        <button class="btn btn-filled">
+          <i class="fas fa-user-plus"></i> Register
+        </button>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <ul class="mobile-nav-links">
+        <li><a href="#features" onclick="closeMenu()" class="nav-link"><i class="fas fa-star"></i> Features</a></li>
+        <li><a href="#how-it-works" onclick="closeMenu()" class="nav-link"><i class="fas fa-info-circle"></i> How It
+            Works</a></li>
+        <li><a href="#testimonials" onclick="closeMenu()" class="nav-link"><i class="fas fa-comments"></i>
+            Testimonials</a></li>
+        <li><a href="#pricing" onclick="closeMenu()" class="nav-link"><i class="fas fa-tags"></i> Pricing</a></li>
+        <li><a href="#contact" onclick="closeMenu()" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+      <div class="mobile-auth-buttons">
+        <button class="btn btn-outline">
+          <i class="fas fa-sign-in-alt"></i> Sign In
+        </button>
+        <button class="btn btn-filled">
+          <i class="fas fa-user-plus"></i> Register
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Revolutionizing Medicine Shopping</h1>
+      <p>
+        <i class="fas fa-check-circle"></i> Scan medicine barcodes instantly<br>
+        <i class="fas fa-check-circle"></i> Compare prices across pharmacies<br>
+        <i class="fas fa-check-circle"></i> Get doorstep delivery within hours
+      </p>
+      <div class="cta-buttons">
+        <button class="btn btn-cta btn-cta-primary">
+          <i class="fas fa-rocket"></i> Get Started
+        </button>
+        <button class="btn btn-cta btn-cta-secondary">
+          <i class="fas fa-info-circle"></i> Learn More
+        </button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="medical.png" alt="MediScan App in action" />
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <h2 class="section-title">Why Choose MediScan</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-qrcode"></i>
+        </div>
+        <h3 class="feature-title">Barcode Scanning</h3>
         <p>
-          MediScan is your all-in-one solution for hassle-free medication
-          shopping. Simply scan the barcode, compare prices, and get your
-          medicines delivered to your doorstep.
+          Instantly scan any medication barcode to get detailed information,
+          availability, and pricing.
         </p>
-        <div class="cta-buttons">
-          <button class="btn btn-cta btn-cta-primary">Get Started</button>
-          <button class="btn btn-cta btn-cta-secondary">Learn More</button>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-search-dollar"></i>
         </div>
+        <h3 class="feature-title">Price Comparison</h3>
+        <p>
+          Compare prices across different pharmacies to ensure you always get
+          the best deal.
+        </p>
       </div>
-      <div class="hero-image">
-        <img src="https://via.placeholder.com/500x400/3a86ff/ffffff?text=MediScan+App" alt="MediScan App in action" />
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-truck-fast"></i>
+        </div>
+        <h3 class="feature-title">Fast Delivery</h3>
+        <p>
+          Get your medications delivered to your doorstep within hours, not
+          days.
+        </p>
       </div>
-    </section>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-file-medical"></i>
+        </div>
+        <h3 class="feature-title">Prescription Management</h3>
+        <p>
+          Upload and manage all your prescriptions in one secure place for
+          easy refills.
+        </p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-bell"></i>
+        </div>
+        <h3 class="feature-title">Medication Reminders</h3>
+        <p>
+          Never miss a dose with our smart reminder system that notifies you
+          when it's time.
+        </p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-user-md"></i>
+        </div>
+        <h3 class="feature-title">Expert Consultation</h3>
+        <p>
+          Connect with certified pharmacists for instant guidance and advice.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <section class="features" id="features">
-      <h2 class="section-title">Why Choose MediScan</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <h3 class="feature-title">Barcode Scanning</h3>
-          <p>
-            Instantly scan any medication barcode to get detailed information,
-            availability, and pricing.
-          </p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔍</div>
-          <h3 class="feature-title">Price Comparison</h3>
-          <p>
-            Compare prices across different pharmacies to ensure you always get
-            the best deal.
-          </p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🚚</div>
-          <h3 class="feature-title">Fast Delivery</h3>
-          <p>
-            Get your medications delivered to your doorstep within hours, not
-            days.
-          </p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📋</div>
-          <h3 class="feature-title">Prescription Management</h3>
-          <p>
-            Upload and manage all your prescriptions in one secure place for
-            easy refills.
-          </p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔔</div>
-          <h3 class="feature-title">Medication Reminders</h3>
-          <p>
-            Never miss a dose with our smart reminder system that notifies you
-            when it's time.
-          </p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">👨‍⚕️</div>
-          <h3 class="feature-title">Expert Consultation</h3>
-          <p>
-            Connect with certified pharmacists for instant guidance and advice.
-          </p>
-        </div>
+  <section class="how-it-works" id="how-it-works">
+    <h2 class="section-title">How MediScan Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3 class="step-title">Download the App</h3>
+        <p>
+          Get MediScan on your iOS or Android device for free and create your
+          account.
+        </p>
       </div>
-    </section>
-
-    <section class="how-it-works" id="how-it-works">
-      <h2 class="section-title">How MediScan Works</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3 class="step-title">Download the App</h3>
-          <p>
-            Get MediScan on your iOS or Android device for free and create your
-            account.
-          </p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3 class="step-title">Scan Medicine Barcode</h3>
-          <p>
-            Use your phone camera to scan any medication barcode for instant
-            information.
-          </p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3 class="step-title">Compare & Order</h3>
-          <p>
-            Compare prices, choose your preferred pharmacy, and place your
-            order.
-          </p>
-        </div>
-        <div class="step">
-          <div class="step-number">4</div>
-          <h3 class="step-title">Receive at Home</h3>
-          <p>
-            Get your medications delivered to your doorstep and track in
-            real-time.
-          </p>
-        </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3 class="step-title">Scan Medicine Barcode</h3>
+        <p>
+          Use your phone camera to scan any medication barcode for instant
+          information.
+        </p>
       </div>
-    </section>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3 class="step-title">Compare & Order</h3>
+        <p>
+          Compare prices, choose your preferred pharmacy, and place your
+          order.
+        </p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3 class="step-title">Receive at Home</h3>
+        <p>
+          Get your medications delivered to your doorstep and track in
+          real-time.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <section class="testimonials" id="testimonials">
-      <div class="testimonials-container">
-        <h2 class="section-title">What Our Users Say</h2>
-        <div class="testimonial-cards">
-          <div class="testimonial-card">
-            <p class="testimonial-content">
-              "MediScan has made my life so much easier! I can compare prices and get my medications delivered without leaving home. The barcode scanning feature is incredibly accurate."
-            </p>
-            <div class="testimonial-author">
-              <div class="author-image">SM</div>
-              <div class="author-info">
-                <h4>Sarah Mitchell</h4>
-                <p>Regular Customer</p>
-              </div>
+  <section class="testimonials" id="testimonials">
+    <div class="testimonials-container">
+      <h2 class="section-title">What Our Users Say</h2>
+      <div class="testimonial-cards">
+        <div class="testimonial-card">
+          <p class="testimonial-content">
+            "MediScan has made my life so much easier! I can compare prices and get my medications delivered without
+            leaving home. The barcode scanning feature is incredibly accurate."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-image">SM</div>
+            <div class="author-info">
+              <h4>Sarah Mitchell</h4>
+              <p>Regular Customer</p>
             </div>
           </div>
-          <div class="testimonial-card">
-            <p class="testimonial-content">
-              "As someone with chronic conditions, MediScan's reminder system has been a lifesaver. I never miss my medications anymore, and the expert consultation feature is fantastic."
-            </p>
-            <div class="testimonial-author">
-              <div class="author-image">DJ</div>
-              <div class="author-info">
-                <h4>David Johnson</h4>
-                <p>Healthcare Professional</p>
-              </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-content">
+            "As someone with chronic conditions, MediScan's reminder system has been a lifesaver. I never miss my
+            medications anymore, and the expert consultation feature is fantastic."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-image">DJ</div>
+            <div class="author-info">
+              <h4>David Johnson</h4>
+              <p>Healthcare Professional</p>
             </div>
           </div>
-          <div class="testimonial-card">
-            <p class="testimonial-content">
-              "The price comparison feature saved me over $200 last month! MediScan finds the best deals and the delivery is always fast and reliable."
-            </p>
-            <div class="testimonial-author">
-              <div class="author-image">EW</div>
-              <div class="author-info">
-                <h4>Emily Wilson</h4>
-                <p>Budget-Conscious Shopper</p>
-              </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-content">
+            "The price comparison feature saved me over $200 last month! MediScan finds the best deals and the delivery
+            is always fast and reliable."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-image">EW</div>
+            <div class="author-info">
+              <h4>Emily Wilson</h4>
+              <p>Budget-Conscious Shopper</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="pricing" id="pricing">
-      <h2 class="section-title">Choose Your Plan</h2>
-      <p class="section-subtitle">Select the perfect plan for your medication needs</p>
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <h3>Basic</h3>
-          <div class="price">Free</div>
-          <ul class="features-list">
-            <li>Barcode Scanning</li>
-            <li>Price Comparison</li>
-            <li>Basic Delivery</li>
-            <li>Email Support</li>
-          </ul>
-          <button class="btn btn-primary">Get Started</button>
-        </div>
-        <div class="pricing-card featured">
-          <h3>Premium</h3>
-          <div class="price">$9.99<span class="price-period">/month</span></div>
-          <ul class="features-list">
-            <li>All Basic Features</li>
-            <li>Prescription Management</li>
-            <li>Medication Reminders</li>
-            <li>Express Delivery</li>
-            <li>Priority Support</li>
-            <li>Expert Consultation</li>
-          </ul>
-          <button class="btn btn-primary">Choose Premium</button>
-        </div>
-        <div class="pricing-card">
-          <h3>Family</h3>
-          <div class="price">$19.99<span class="price-period">/month</span></div>
-          <ul class="features-list">
-            <li>All Premium Features</li>
-            <li>Up to 5 Family Members</li>
-            <li>Family Medication Tracking</li>
-            <li>Bulk Order Discounts</li>
-            <li>24/7 Support</li>
-            <li>Health Insights</li>
-          </ul>
-          <button class="btn btn-primary">Choose Family</button>
-        </div>
+  <section class="pricing" id="pricing">
+    <h2 class="section-title">Choose Your Plan</h2>
+    <p class="section-subtitle">Select the perfect plan for your medication needs</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Basic</h3>
+        <div class="price">Free</div>
+        <ul class="features-list">
+          <li>Barcode Scanning</li>
+          <li>Price Comparison</li>
+          <li>Basic Delivery</li>
+          <li>Email Support</li>
+        </ul>
+        <button class="btn btn-primary">Get Started</button>
       </div>
-    </section>
+      <div class="pricing-card featured">
+        <h3>Premium</h3>
+        <div class="price">$9.99<span class="price-period">/month</span></div>
+        <ul class="features-list">
+          <li>All Basic Features</li>
+          <li>Prescription Management</li>
+          <li>Medication Reminders</li>
+          <li>Express Delivery</li>
+          <li>Priority Support</li>
+          <li>Expert Consultation</li>
+        </ul>
+        <button class="btn btn-primary">Choose Premium</button>
+      </div>
+      <div class="pricing-card">
+        <h3>Family</h3>
+        <div class="price">$19.99<span class="price-period">/month</span></div>
+        <ul class="features-list">
+          <li>All Premium Features</li>
+          <li>Up to 5 Family Members</li>
+          <li>Family Medication Tracking</li>
+          <li>Bulk Order Discounts</li>
+          <li>24/7 Support</li>
+          <li>Health Insights</li>
+        </ul>
+        <button class="btn btn-primary">Choose Family</button>
+      </div>
+    </div>
+  </section>
 
-    <section class="download">
+  <section class="download">
+    <div class="download-container">
       <h2 class="section-title">Download MediScan Today</h2>
       <p class="section-subtitle">
         Get started with MediScan and revolutionize your medication shopping experience.
@@ -253,131 +283,149 @@
       </p>
       <div class="app-badges">
         <a href="#" class="app-badge">
-          <i>🤖</i>
+          <div class="badge-icon">
+            <i class="fab fa-android"></i>
+          </div>
           <div class="app-badge-content">
-            <p>Get it on</p>
-            <p>Android</p>
+            <span class="badge-small">GET IT ON</span>
+            <span class="badge-large">Google Play</span>
           </div>
         </a>
         <a href="#" class="app-badge">
-          <i>💻</i>
+          <div class="badge-icon">
+            <i class="fab fa-apple"></i>
+          </div>
           <div class="app-badge-content">
-            <p>Available on</p>
-            <p>Web App</p>
+            <span class="badge-small">Download on the</span>
+            <span class="badge-large">App Store</span>
+          </div>
+        </a>
+        <a href="#" class="app-badge">
+          <div class="badge-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <div class="app-badge-content">
+            <span class="badge-small">ACCESS ON</span>
+            <span class="badge-large">Web Browser</span>
           </div>
         </a>
       </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="section-subtitle">
-        Have questions or need support? We're here to help you with all your medication needs.
-      </p>
-      <div class="contact-container">
-        <div class="map-section">
-           <div class="map-container">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15282225.79979123!2d73.7250245393691!3d20.750301298393563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1621837201360!5m2!1sen!2sin" 
-                        width="100%" 
-                        height="715" 
-                        style="border:0; border-radius:10px;" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
-                </div>
+      <div class="download-features">
+        <div class="download-feature">
+          <i class="fas fa-shield-alt"></i>
+          <span>Secure & Private</span>
         </div>
-        <div class="contact-form-container">
-          <form class="contact-form" onsubmit="handleSubmit(event)">
-            <div class="form-group">
-              <label for="firstName">First Name</label>
-              <input type="text" id="firstName" name="firstName" required placeholder="Enter first Name">
-            </div>
-            <div class="form-group">
-              <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" name="lastName" required placeholder="Last name">
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required placeholder="Enter your email">
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="7781804958">
-            </div>
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" name="subject" required placeholder="Subject">
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" required placeholder="Textarea"></textarea>
-            </div>
-            <div class="form-group checkbox-group">
-              <input type="checkbox" id="newsletter" name="newsletter" class="gola">
-              <label for="newsletter">Subscribe to our newsletter for updates and health tips</label>
-            </div>
-            <button type="submit" class="btn">Send Message</button>
-          </form>
+        <div class="download-feature">
+          <i class="fas fa-bolt"></i>
+          <span>Fast & Reliable</span>
+        </div>
+        <div class="download-feature">
+          <i class="fas fa-sync"></i>
+          <span>Regular Updates</span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3 class="footer-logo">Chikit360</h3>
-          <p class="footer-desc">
-            Revolutionizing medication shopping with smart technology and 
-            personalized care for better health outcomes.
-          </p>
-          <div class="social-links">
-            <a href="#" class="social-link" title="Facebook"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a href="#" class="social-link" title="Instagram"
-              ><i class="fab fa-instagram"></i
-            ></a>
-    
-            <a href="#" class="social-link" title="YouTube"
-              ><i class="fab fa-youtube"></i
-            ></a>
-            <a href="#" class="social-link" title="Spotify"
-              ><i class="fa-brands fa-linkedin"></i></a>
+  <section class="contact" id="contact">
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-subtitle">
+      Have questions or need support? We're here to help you with all your medication needs.
+    </p>
+    <div class="contact-container">
+      <div class="map-section">
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15282225.79979123!2d73.7250245393691!3d20.750301298393563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1621837201360!5m2!1sen!2sin"
+            width="100%" height="715" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy">
+          </iframe>
+        </div>
+      </div>
+      <div class="contact-form-container">
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required placeholder="Enter first Name">
           </div>
-        </div>
-        <div class="footer-section">
-          <h4 class="footer-title">Product</h4>
-          <ul class="footer-links">
-            <li><a href="#features">Features</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#">API</a></li>
-            <li><a href="#">Integrations</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4 class="footer-title">Company</h4>
-          <ul class="footer-links">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Press</a></li>
-            <li><a href="#">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4 class="footer-title">Support</h4>
-          <ul class="footer-links">
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#">Help Center</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-          </ul>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required placeholder="Last name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="7781804958">
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required placeholder="Subject">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Textarea"></textarea>
+          </div>
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="newsletter" name="newsletter" class="gola">
+            <label for="newsletter">Subscribe to our newsletter for updates and health tips</label>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3 class="footer-logo">Chikit360</h3>
+        <p class="footer-desc">
+          Revolutionizing medication shopping with smart technology and
+          personalized care for better health outcomes.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+
+          <a href="#" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-link" title="Spotify"><i class="fa-brands fa-linkedin"></i></a>
         </div>
       </div>
-      <div class="copyright">
-        <p>&copy; 2024 Chikit360. All rights reserved. | Designed with ❤️ for better health.</p>
+      <div class="footer-section">
+        <h4 class="footer-title">Product</h4>
+        <ul class="footer-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#">API</a></li>
+          <li><a href="#">Integrations</a></li>
+        </ul>
       </div>
-    </footer>
+      <div class="footer-section">
+        <h4 class="footer-title">Company</h4>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4 class="footer-title">Support</h4>
+        <ul class="footer-links">
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2024 Chikit360. All rights reserved. | Designed with ❤️ for better health.</p>
+    </div>
+  </footer>
   <script src="app.js"></script>
-  </body>
+</body>
+
 </html>
