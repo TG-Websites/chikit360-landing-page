@@ -171,3 +171,207 @@ document.querySelectorAll('.feature-card, .step, .testimonial-card, .pricing-car
   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   observer.observe(el);
 });
+
+
+
+const container = document.getElementById('plans-container');
+
+async function fetchPlans() {
+  const res = await fetch('http://localhost:4001/offers-plan');
+  const plans = await res.json();
+
+  plans.data.forEach(plan => renderPlan(plan));
+}
+
+function renderPlan(plan) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'plan-card';
+  wrapper.id = plan.id;
+
+  if (plan.popular) {
+    const popularTag = document.createElement('div');
+    popularTag.className = 'popular-tag';
+    popularTag.textContent = 'MOST POPULAR';
+    wrapper.appendChild(popularTag);
+  }
+
+  let schemeIndex = 0;
+  const schemes = plan.scheme || [];
+
+  // Plan header
+  wrapper.innerHTML = `
+                <h2 class="plan-title">${plan.name}</h2>
+                <p class="description">${plan.description || ''}</p>
+                <div class="setup-price">
+                    <i class="fas fa-tools"></i> Setup Fee: ₹${plan.initialSetUpPrice}
+                </div>
+            `;
+
+  // Scheme slider
+  const schemeSlider = document.createElement('div');
+  schemeSlider.className = 'scheme-box';
+
+  const prevBtn = document.createElement('button');
+  prevBtn.className = 'arrow-btn';
+  prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+
+  const nextBtn = document.createElement('button');
+  nextBtn.className = 'arrow-btn';
+  nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+
+  const schemeDisplay = document.createElement('div');
+  schemeDisplay.className = 'scheme-price';
+
+  function updateScheme() {
+    const scheme = schemes[schemeIndex];
+    schemeDisplay.innerHTML = `
+                    <div class="price">₹${scheme.price}</div>
+                    <div class="details">For ${scheme.validityInDays} Days</div>
+                    ${scheme.discount ? `<div class="discount">${scheme.discount}% OFF</div>` : ''}
+                `;
+  }
+
+  prevBtn.onclick = () => {
+    schemeIndex = (schemeIndex - 1 + schemes.length) % schemes.length;
+    updateScheme();
+  };
+
+  nextBtn.onclick = () => {
+    schemeIndex = (schemeIndex + 1) % schemes.length;
+    updateScheme();
+  };
+
+  schemeSlider.appendChild(prevBtn);
+  schemeSlider.appendChild(schemeDisplay);
+  schemeSlider.appendChild(nextBtn);
+  updateScheme();
+  wrapper.appendChild(schemeSlider);
+
+  // Features
+  if (plan.features?.length) {
+    const features = document.createElement('div');
+    features.className = 'features';
+    features.innerHTML = `
+                    <h3>Features Included</h3>
+                    <ul>
+                        ${plan.features.map(f => `
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>${f.label}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                `;
+    wrapper.appendChild(features);
+  }
+
+  // Add-ons
+  if (plan.extraAddOn?.length) {
+    const addons = document.createElement('div');
+    addons.className = 'addons';
+    addons.innerHTML = `
+                    <h4>Extra Add Ons</h4>
+                `;
+
+    const ul = document.createElement('ul');
+    plan.extraAddOn.forEach(addOn => {
+      const li = document.createElement('li');
+      li.className = 'addon-item';
+      li.innerHTML = `
+                        <div class="addon-title">${addOn.title}</div>
+                        <div class="addon-price">₹${addOn.price}</div>
+                    `;
+      ul.appendChild(li);
+    });
+
+    addons.appendChild(ul);
+    wrapper.appendChild(addons);
+  }
+
+  // Subscribe button
+  const subscribeBtn = document.createElement('div');
+  subscribeBtn.className = 'subscribe-btn';
+  subscribeBtn.innerHTML = `
+                <button class="btn">
+                    <i class="fas fa-shopping-cart"></i> Subscribe to ${plan.name}
+                </button>
+            `;
+  subscribeBtn.querySelector('.btn').onclick = () => {
+    alert(`Subscribed to ${plan.name} plan!`);
+  };
+  wrapper.appendChild(subscribeBtn);
+
+  container.appendChild(wrapper);
+}
+
+fetchPlans();
+
+
+
+
+
+
+document.querySelector(".btn-cta-secondary").addEventListener("click", function (e) {
+  e.preventDefault();
+  document.getElementById("demoModal").style.display = "block";
+});
+
+// Close modal
+function closeModal() {
+  document.getElementById("demoModal").style.display = "none";
+  document.getElementById("demoForm").reset();
+  document.getElementById("formMessage").textContent = "";
+}
+
+// Form submission
+document.getElementById("demoForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const mobile = document.getElementById("mobile").value.trim();
+  const message = document.getElementById("message").value.trim();
+  const date = document.getElementById("datetime").value;
+
+  const msg = document.getElementById("formMessage");
+  msg.textContent = "Sending...";
+  msg.className = "message";
+
+  try {
+    const res = await fetch('https://chikit360-backend.thundergits.com/inquiries', {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        email,
+        contactNumber: mobile,
+        message,
+        preferredDate: date,
+        inquiryType: "demo"
+      })
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(data.message || "Something went wrong.");
+
+    msg.textContent = "Demo scheduled successfully!";
+    msg.className = "message success";
+
+    setTimeout(() => {
+      closeModal();
+    }, 2000);
+  } catch (err) {
+    msg.textContent = err.message;
+    msg.className = "message error";
+  }
+});
+
+
+// Close modal when clicking outside
+window.onclick = function (event) {
+  const modal = document.getElementById("demoModal");
+  if (event.target === modal) {
+    closeModal();
+  }
+}

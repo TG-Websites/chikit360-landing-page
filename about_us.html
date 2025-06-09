@@ -4,169 +4,710 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="https://thundergits.com/assets/logo/tg-favicon.ico" type="image/x-icon"> <!-- For .ico -->
-    <link rel="icon" href="https://thundergits.com/assets/logo/tg-favicon.png" type="image/png"> <!-- For .png -->
+    <link rel="icon" href="https://thundergits.com/assets/logo/tg-favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://thundergits.com/assets/logo/tg-favicon.png" type="image/png">
     <title>About Us - Chikit360</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: #f9fafb;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 2.2rem;
+        }
+
+        .logo .highlight {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .auth-buttons .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .auth-buttons .btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .auth-buttons .btn a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 100px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+            max-width: 90%;
+        }
+
+        .hero-illustration {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-illustration img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            font-size: 2.8rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .mission-vision {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 70px;
+        }
+
+        .mission-vision .about-card {
+            flex: 1;
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 35px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+        }
+
+        .mission-vision .about-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-card .flex {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .about-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.1);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .about-card h2 {
+            font-size: 1.8rem;
+            color: var(--dark);
+        }
+
+        .about-card p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .story-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 50px;
+            border-radius: var(--border-radius);
+            margin-bottom: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+
+        .story-section p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .story-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .values-section {
+            margin-bottom: 70px;
+        }
+
+        .values-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--dark);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--secondary);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .value-card p {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+            border-radius: var(--border-radius);
+            margin-bottom: 70px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-item .number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .stat-item .label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h3.footer-logo {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h3.footer-logo .highlight {
+            color: var(--primary);
+        }
+
+        .footer-desc {
+            color: #cbd5e1;
+            margin-bottom: 25px;
+            max-width: 300px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-title {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.05rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 25px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        .floating-contact {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+            z-index: 99;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .floating-contact:hover {
+            transform: translateY(-5px);
+            background: var(--primary-dark);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text p {
+                max-width: 100%;
+            }
+
+            .mission-vision {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.3rem;
+            }
+
+            .story-section {
+                padding: 30px;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <header>
-        <nav>
-            <div class="logo">
-                <i class="fas fa-clinic-medical"></i>
-                <span>Chikit<span class="highlight">360</span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html#features" class="nav-link">Features</a></li>
-                <li><a href="index.html#how-it-works" class="nav-link">How It Works</a></li>
-                <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
-                <li><a href="index.html#pricing" class="nav-link">Pricing</a></li>
-                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="auth-buttons">
-                <button class="btn btn-outline">
-                    <a href="https://tg-panel.chikit360.thundergits.com/signin">
-                        <i class="fas fa-sign-in-alt"></i> Sign In
-                    </a>
-                </button>
-            </div>
-        </nav>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-clinic-medical"></i>
+                    <span>Chikit<span class="highlight">360</span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html#features" class="nav-link">Features</a></li>
+                    <li><a href="index.html#how-it-works" class="nav-link">How It Works</a></li>
+                    <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="index.html#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <button class="btn btn-outline">
+                        <a href="https://tg-panel.chikit360.thundergits.com/signin">
+                            <i class="fas fa-sign-in-alt"></i> Sign In
+                        </a>
+                    </button>
+                </div>
+            </nav>
+        </div>
     </header>
 
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>About <span>Chikit360</span></h1>
+                    <p>Transforming pharmacy management with innovative technology solutions designed to enhance
+                        efficiency, improve patient care, and drive healthcare innovation.</p>
+                </div>
+                <div class="hero-illustration">
+                    <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="50" y="50" width="500" height="300" rx="20" fill="#dbeafe" />
+                        <rect x="80" y="100" width="440" height="40" rx="10" fill="#93c5fd" />
+                        <rect x="80" y="170" width="200" height="40" rx="10" fill="#60a5fa" />
+                        <rect x="320" y="170" width="200" height="40" rx="10" fill="#60a5fa" />
+                        <rect x="80" y="240" width="440" height="80" rx="10" fill="#bfdbfe" />
+                        <circle cx="120" cy="120" r="15" fill="#3b82f6" />
+                        <circle cx="170" cy="120" r="15" fill="#3b82f6" />
+                        <circle cx="220" cy="120" r="15" fill="#3b82f6" />
+                        <circle cx="420" cy="120" r="25" fill="#10b981" />
+                        <text x="420" y="125" text-anchor="middle" fill="white" font-family="Arial"
+                            font-size="18">✓</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="about-section">
-        <br>
-        <div class="about-container">
-            <h1 class="section-title">About Chikit360</h1>
-            <div class="about-content">
-                <div class="mission-vision">
-                    <div class="about-card">
-                        <div class="flex">
-                            <i class="fas fa-bullseye"></i>
-                            <h2>Our Mission</h2>
+        <div class="container">
+            <h1 class="section-title">Our Commitment to Pharmacy Excellence</h1>
 
-                        </div>
-                        <p>To revolutionize pharmacy management through innovative technology solutions that enhance
-                            efficiency, reduce errors, and improve patient care.</p>
+            <div class="mission-vision">
+                <div class="about-card">
+                    <div class="flex">
+                        <i class="fas fa-bullseye"></i>
+                        <h2>Our Mission</h2>
                     </div>
-                    <br>
-                    <div class="about-card">
-                        <div class="flex">
-
-                            <i class="fas fa-eye"></i>
-                            <h2>Our Vision</h2>
-                        </div>
-                        <p>To become the leading pharmacy management solution provider, empowering pharmacies worldwide
-                            with smart technology for better healthcare delivery.</p>
-                    </div>
+                    <p>To revolutionize pharmacy management through innovative technology solutions that enhance
+                        efficiency, reduce errors, and improve patient care. We strive to empower pharmacists with tools
+                        that allow them to focus on what matters most - their patients.</p>
                 </div>
 
-                <div class="story-section">
-                    <h2>Our Story</h2>
-                    <p>Founded in 2023, Chikit360 emerged from a deep understanding of the challenges faced by modern
-                        pharmacies. Our team of healthcare professionals and technology experts came together with a
-                        shared goal: to create a comprehensive solution that would transform how pharmacies operate.</p>
-                    <p>What started as a simple inventory management system has evolved into a complete pharmacy ERP
-                        solution, trusted by hundreds of pharmacies across India.</p>
+                <div class="about-card">
+                    <div class="flex">
+                        <i class="fas fa-eye"></i>
+                        <h2>Our Vision</h2>
+                    </div>
+                    <p>To become the leading pharmacy management solution provider globally, empowering pharmacies with
+                        smart technology for better healthcare delivery. We envision a future where every pharmacy
+                        operates at peak efficiency with minimal administrative burden.</p>
                 </div>
-                <br>
-                <div class="values-section">
-                    <h2>Our Core Values</h2>
-                    <div class="values-grid">
-                        <div class="value-card">
-                            <i class="fas fa-shield-alt"></i>
-                            <h3>Security</h3>
-                            <p>Ensuring the highest level of data protection and privacy for our clients.</p>
-                        </div>
-                        <div class="value-card">
-                            <i class="fas fa-handshake"></i>
-                            <h3>Trust</h3>
-                            <p>Building lasting relationships through transparency and reliability.</p>
-                        </div>
-                        <div class="value-card">
-                            <i class="fas fa-lightbulb"></i>
-                            <h3>Innovation</h3>
-                            <p>Continuously improving our solutions with cutting-edge technology.</p>
-                        </div>
-                        <div class="value-card">
-                            <i class="fas fa-users"></i>
-                            <h3>Customer First</h3>
-                            <p>Prioritizing our clients' needs in everything we do.</p>
-                        </div>
+            </div>
+
+            <div class="story-section">
+                <h2>Our Journey</h2>
+                <p>Founded in 2023, Chikit360 emerged from a deep understanding of the challenges faced by modern
+                    pharmacies. Our team of healthcare professionals and technology experts came together with a shared
+                    goal: to create a comprehensive solution that would transform how pharmacies operate.</p>
+                <p>What started as a simple inventory management system has evolved into a complete pharmacy ERP
+                    solution, trusted by hundreds of pharmacies across India. Today, we process over 500,000
+                    prescriptions monthly, helping pharmacies serve their communities more effectively.</p>
+            </div>
+
+            <div class="values-section">
+                <h2>Our Core Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Security & Compliance</h3>
+                        <p>Ensuring the highest level of data protection and regulatory compliance for our clients.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Trust & Integrity</h3>
+                        <p>Building lasting relationships through transparency, reliability, and ethical business
+                            practices.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Continuous Innovation</h3>
+                        <p>Constantly enhancing our solutions with cutting-edge technology to stay ahead of industry
+                            needs.</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Customer-Centric Approach</h3>
+                        <p>Prioritizing our clients' needs in every decision and product development process.</p>
                     </div>
                 </div>
-                <br>
-                <div class="team-section">
-                    <h2>Leadership Team</h2>
-                    <div class="team-grid">
-                        <div class="team-card">
-                            <i class="fas fa-user-circle"></i>
-                            <h3>Dr. Rajesh Kumar</h3>
-                            <p class="designation">Chief Executive Officer</p>
-                            <p>20+ years of healthcare technology experience</p>
-                        </div>
-                        <div class="team-card">
-                            <i class="fas fa-user-circle"></i>
-                            <h3>Priya Sharma</h3>
-                            <p class="designation">Chief Technology Officer</p>
-                            <p>15+ years of software development expertise</p>
-                        </div>
-                        <div class="team-card">
-                            <i class="fas fa-user-circle"></i>
-                            <h3>Dr. Amit Patel</h3>
-                            <p class="designation">Head of Pharmacy Relations</p>
-                            <p>12+ years of pharmacy management experience</p>
-                        </div>
+            </div>
+
+            <div class="stats-section">
+                <h2 class="section-title" style="color: white;">Our Impact in Numbers</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="number">500+</div>
+                        <div class="label">Pharmacies Empowered</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">1M+</div>
+                        <div class="label">Prescriptions Processed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">98%</div>
+                        <div class="label">Customer Satisfaction</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">24/7</div>
+                        <div class="label">Support Availability</div>
                     </div>
                 </div>
-                <br>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3 class="footer-logo">Chikit360</h3>
-                <p class="footer-desc">
-                    Revolutionizing medication shopping with smart technology and
-                    personalized care for better health outcomes.
-                </p>
-                <div class="social-links">
-                    <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-logo">Chikit<span class="highlight">360</span></h3>
+                    <p class="footer-desc">
+                        Revolutionizing medication management with smart technology and personalized care for better
+                        health outcomes.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about_us.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="privacy_policy.html">Privacy Policy</a></li>
+                        <li><a href="terms_and_conditions.html">Terms of Service</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-section">
-                <h4 class="footer-title">Product</h4>
-                <ul class="footer-links">
-                    <li><a href="index.html#features">Features</a></li>
-                    <li><a href="index.html#pricing">Pricing</a></li>
-                </ul>
+            <div class="copyright">
+                <p>&copy; 2024 Chikit360. All rights reserved. | Designed with ❤️ for better health.</p>
             </div>
-            <div class="footer-section">
-                <h4 class="footer-title">Company</h4>
-                <ul class="footer-links">
-                    <li><a href="about_us.html">About Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4 class="footer-title">Support</h4>
-                <ul class="footer-links">
-                    <li><a href="index.html#contact">Contact</a></li>
-                    <li><a href="privacy_policy.html">Privacy Policy</a></li>
-                    <li><a href="terms_and_conditions.html">Terms of Service</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2024 Chikit360. All rights reserved. | Designed with ❤️ for better health.</p>
         </div>
     </footer>
-    <script src="app.js"></script>
+
     <a href="index.html#contact" class="floating-contact" title="Contact Us">
         <i class="fas fa-envelope"></i>
     </a>

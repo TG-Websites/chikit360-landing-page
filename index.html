@@ -8,6 +8,7 @@
   <link rel="icon" href="https://thundergits.com/assets/logo/tg-favicon.ico" type="image/x-icon"> <!-- For .ico -->
   <link rel="icon" href="https://thundergits.com/assets/logo/tg-favicon.png" type="image/png"> <!-- For .png -->
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
@@ -29,9 +30,9 @@
         <button class="btn btn-outline">
           <a href="https://tg-panel.chikit360.thundergits.com/signin">
             <i class="fas fa-sign-in-alt"></i> Sign In
-
           </a>
         </button>
+      </div>
 
       </div>
       <div class="hamburger" onclick="toggleMenu()">
@@ -73,17 +74,35 @@
       <div class="cta-buttons">
 
         <button class="btn btn-cta btn-cta-secondary">
-          <a href="#contact">
 
-            <i class="fas fa-calendar"></i> Schedule Demo
-          </a>
+
+          <i class="fas fa-calendar"></i> Schedule Demo
+
         </button>
       </div>
     </div>
     <div class="hero-image">
-      <img src="medical.png" alt="Chikit360 Pharmacy Management System" />
+      <video src="laptop-mockup.mp4" autoplay loop width="100%" alt="Chikit360 Pharmacy Management System"></video>
     </div>
   </section>
+
+  <!-- Schedule Demo Modal -->
+  <div id="demoModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h2>Schedule a Demo</h2>
+      <form id="demoForm">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Your Email" required />
+        <input type="tel" id="mobile" placeholder="Mobile Number" required />
+        <input type="datetime-local" id="datetime" required />
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn btn-cta">Schedule</button>
+        <div id="formMessage" class="message"></div>
+      </form>
+    </div>
+  </div>
+
 
   <section class="features" id="features">
     <h2 class="section-title">Why Choose Chikit360</h2>
@@ -199,14 +218,16 @@
           </p>
           <div class="testimonial-author">
             <div class="author-image">
-              <i class="fas fa-user-circle"></i>
+              <i class="fas fa-user"></i>
             </div>
             <div class="author-info">
               <h4>Dr. Rajesh Patel</h4>
-              <p>Owner, MediCare Pharmacy, Mumbai</p>
+              <p>Owner, <span class="testimonial-company">MediCare Pharmacy</span></p>
+              <p>Mumbai</p>
             </div>
           </div>
         </div>
+
         <div class="testimonial-card">
           <div class="testimonial-rating">
             <i class="fas fa-star"></i>
@@ -221,14 +242,16 @@
           </p>
           <div class="testimonial-author">
             <div class="author-image">
-              <i class="fas fa-user-circle"></i>
+              <i class="fas fa-user"></i>
             </div>
             <div class="author-info">
               <h4>Priya Sharma</h4>
-              <p>Director, HealthMart Pharmacies, Delhi NCR</p>
+              <p>Director, <span class="testimonial-company">HealthMart Pharmacies</span></p>
+              <p>Delhi NCR</p>
             </div>
           </div>
         </div>
+
         <div class="testimonial-card">
           <div class="testimonial-rating">
             <i class="fas fa-star"></i>
@@ -243,71 +266,42 @@
           </p>
           <div class="testimonial-author">
             <div class="author-image">
-              <i class="fas fa-user-circle"></i>
+              <i class="fas fa-user"></i>
             </div>
             <div class="author-info">
               <h4>Venkat Krishnan</h4>
-              <p>Manager, Wellness Pharmacy, Bangalore</p>
+              <p>Manager, <span class="testimonial-company">Wellness Pharmacy</span></p>
+              <p>Bangalore</p>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="testimonial-nav">
+        <button class="nav-btn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="nav-btn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
     </div>
   </section>
 
-  <section class="pricing" id="pricing">
-    <h2 class="section-title">Choose Your Plan</h2>
-    <p class="section-subtitle">Select the perfect plan for your pharmacy needs</p>
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <div>
+  <section>
+    <div class="pricing-header">
+      <h1>Flexible Pricing Plans</h1>
+      <p>Choose the perfect plan for your pharmacy. All plans include our core features with options to scale as your
+        business grows.</p>
 
-          <h3>Starter</h3>
-          <div class="price">One-time Setup Fee + Monthly Subscription</div>
-          <ul class="features-list">
-            <li>Basic Inventory Management</li>
-            <li>Barcode Scanner App</li>
-            <li>Basic Invoice Generation</li>
-            <li>2 User Accounts</li>
-            <li>Email Support</li>
-            <li>30-Day Free Trial</li>
-          </ul>
-        </div>
-        <button class="btn btn-primary">Get Started</button>
-      </div>
-      <div class="pricing-card featured">
-        <div>
-          <h3>Professional</h3>
-          <div class="price">Setup + Monthly Premium<span class="price-period"> (Save 20% Yearly)</span></div>
-          <ul class="features-list">
-            <li>All Starter Features</li>
-            <li>Advanced Inventory Management</li>
-            <li>Unlimited User Roles</li>
-            <li>Bulk CSV Operations</li>
-            <li>Advanced Analytics</li>
-            <li>Priority Support</li>
-            <li>Custom Website (Additional)</li>
-          </ul>
+      <!-- <div class="toggle-container">
+        <div class="toggle-option active">Monthly Billing</div>
+        <div class="toggle-option">Annual Billing (Save 20%)</div>
+      </div> -->
+    </div>
 
-        </div>
-        <button class="btn btn-primary">Choose Professional</button>
-      </div>
-      <div class="pricing-card">
-        <div>
-
-          <h3>Enterprise</h3>
-          <div class="price">Custom Solution<span class="price-period">/yearly</span></div>
-          <ul class="features-list">
-            <li>All Professional Features</li>
-            <li>Multiple Store Management</li>
-            <li>Custom Integration Support</li>
-            <li>Dedicated Account Manager</li>
-            <li>24/7 Premium Support</li>
-            <li>Custom Features</li>
-          </ul>
-        </div>
-        <button class="btn btn-primary">Contact Sales</button>
-      </div>
+    <div id="plans-container">
+      <!-- Plans will be rendered here by JavaScript -->
     </div>
   </section>
 
@@ -362,22 +356,24 @@
     <div class="contact-container">
       <div class="contact-info-section">
         <div class="contact-info-card">
-          <i class="fas fa-phone-alt"></i>
+          <i class="fas fa-phone-alt rotate-90"></i>
           <h3>Call Us</h3>
-          <p>+91 98765 43210</p>
+          <p>
+            +91-7765979725</p>
           <p>Monday to Saturday, 9AM - 6PM IST</p>
         </div>
         <div class="contact-info-card">
           <i class="fas fa-envelope"></i>
           <h3>Email Us</h3>
-          <p>sales@chikit360.com</p>
-          <p>support@chikit360.com</p>
+          <p>info@thundergits.com</p>
+
         </div>
         <div class="contact-info-card">
           <i class="fas fa-location-dot"></i>
           <h3>Visit Us</h3>
-          <p>Chikit360 Technologies</p>
-          <p>Sector 63, Noida, UP, India</p>
+
+          <p>Sector 85, Bata Chowk, Faridabad, <br> Haryana, India, 121002
+          </p>
         </div>
       </div>
       <div class="contact-form-container">
@@ -409,48 +405,46 @@
   </section>
 
   <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3 class="footer-logo">Chikit360</h3>
-        <p class="footer-desc">
-          Revolutionizing medication shopping with smart technology and
-          personalized care for better health outcomes.
-        </p>
-        <div class="social-links">
-          <a href="https://www.facebook.com/profile.php?id=61571113486327" class="social-link" title="Facebook"><i
-              class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/thundergits/" class="social-link" title="Instagram"><i
-              class="fab fa-instagram"></i></a>
-
-          <a href="https://x.com/thundergits" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.linkedin.com/company/thundergits" class="social-link" title="LinkedIn"><i
-              class="fa-brands fa-linkedin"></i></a>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-logo">Chikit<span class="highlight">360</span></h3>
+          <p class="footer-desc">
+            Revolutionizing medication management with smart technology and personalized care for better
+            health outcomes.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-title">Product</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about_us.html">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-title">Support</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="privacy_policy.html">Privacy Policy</a></li>
+            <li><a href="terms_and_conditions.html">Terms of Service</a></li>
+          </ul>
         </div>
       </div>
-      <div class="footer-section">
-        <h4 class="footer-title">Product</h4>
-        <ul class="footer-links">
-          <li><a href="#features">Features</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-        </ul>
+      <div class="copyright">
+        <p>&copy; 2024 Chikit360. All rights reserved. | Designed with ❤️ for better health.</p>
       </div>
-      <div class="footer-section">
-        <h4 class="footer-title">Company</h4>
-        <ul class="footer-links">
-          <li><a href="./about_us.html">About Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4 class="footer-title">Support</h4>
-        <ul class="footer-links">
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="./privacy_policy.html">Privacy Policy</a></li>
-          <li><a href="./terms_and_conditions.html">Terms of Service</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="copyright">
-      <p>&copy; 2024 Chikit360. All rights reserved. | Designed with ❤️ for better health.</p>
     </div>
   </footer>
   <script src="app.js"></script>
