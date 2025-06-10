@@ -177,7 +177,7 @@ document.querySelectorAll('.feature-card, .step, .testimonial-card, .pricing-car
 const container = document.getElementById('plans-container');
 
 async function fetchPlans() {
-  const res = await fetch('http://localhost:4001/offers-plan');
+  const res = await fetch('https://chikit360-backend.thundergits.com/offers-plan');
   const plans = await res.json();
 
   plans.data.forEach(plan => renderPlan(plan));
